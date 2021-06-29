@@ -4,13 +4,11 @@
     "description": "",
     "main": "app/main.js",
     "scripts": {
-        "ng": "ng",
-    "start": "node server.js",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
-    "postinstall": "ng build  --aot --prod"
+        "start": "node server.js",
+        "build": "npm run build:app && npm run build:vendors",
+        "build:app": "webpack --config=webpack.app.config.js",
+        "build:vendors": "webpack --config=webpack.vendors.config.js",
+        "postinstall": "ng build  --aot --prod"
     },
     "author": "",
     "license": "ISC",
